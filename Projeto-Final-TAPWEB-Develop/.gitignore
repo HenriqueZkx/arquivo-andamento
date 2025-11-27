@@ -1,0 +1,94 @@
+# # .gitignore Raiz do Monorepo (Combinado)
+
+# === Dependências ===
+node_modules/
+
+# === Logs ===
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# === Arquivos de Ambiente (Env) ===
+.env
+.env.local
+.env.*.local
+local.properties
+
+# === Build, Cache & Binários ===
+dist/
+dist-ssr/
+build/
+web-build/
+bin/
+out/
+.expo/
+.vite/
+.kotlin/
+.metro-health-check*
+*.tsbuildinfo
+
+# Build - NetBeans
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+# Build - Kotlin/Gradle
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+!**/src/main/**/build/
+!**/src/test/**/build/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# === IDE & Editor Config ===
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+*.class
+
+# Spring Tool Suite (STS)
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+
+# === Chaves & Certificados ===
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.keystore
+*.mobileprovision
+android/keystores/
+ios/certs/
+
+# === Expo & React Native ===
+expo-env.d.ts
+app-example
+/ios
+/android
+
+# === OS & Misc ===
+.DS_Store
+*.orig.*

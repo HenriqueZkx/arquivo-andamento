@@ -1,0 +1,456 @@
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            background-color: #F8FAFB;
+            color: #0F172A;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-blue: #0EA5E9; /* Azul principal */
+            --light-blue: #E0F2FE; /* Azul claro para fundos */
+            --danger-red: #EF4444; /* Vermelho para ações destrutivas/erros */
+            --success-green: #10B981; /* Verde para sucesso */
+            --text-main: #0F172A;
+            --text-secondary: #64748B;
+            --bg-card: #FFFFFF;
+            --border-card: rgba(15, 23, 42, 0.06);
+        }
+
+        /* -------------------------------------- */
+        /* --- Layout Principal --- */
+        /* -------------------------------------- */
+
+        .admin-app-container {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .admin-dashboard-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 0 24px;
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+
+        .admin-dashboard-card {
+            width: 100%;
+            max-width: 1100px; /* Aumentado para dashboard de admin */
+            background-color: var(--bg-card);
+            padding: 32px; /* Aumentado um pouco o padding */
+            border-radius: 24px;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08); /* Sombra um pouco mais forte */
+            border: 1px solid var(--border-card);
+            margin-top: 40px;
+            margin-bottom: 40px;
+            flex-shrink: 0;
+        }
+
+        /* -------------------------------------- */
+        /* --- Navbar (Manutenção do Estilo Base) --- */
+        /* -------------------------------------- */
+
+        .admin-navbar-container {
+            width: 100vw; 
+            position: relative; 
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            background-color: var(--text-main); /* Fundo escuro */
+            border-bottom: 1px solid #E2E8F0;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            padding: 15px 24px; 
+            flex-shrink: 0;
+            z-index: 10; 
+        }
+
+        .admin-navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            flex-direction: row-reverse; /* Ícones de usuário à direita */
+        }
+
+        .admin-navbar-brand {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4em;
+            font-weight: 900;
+            color: #ffc107; /* Cor de destaque */
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            white-space: nowrap; 
+        }
+
+        .admin-navbar-link-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .admin-navbar-link {
+            font-size: 1em;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: color 0.2s, background-color 0.2s;
+        }
+
+        .admin-navbar-link:hover {
+            color: var(--primary-blue);
+            background-color: rgba(255, 255, 255, 0.1); 
+        }
+
+
+        /* -------------------------------------- */
+        /* --- Footer (Manutenção do Estilo Base) --- */
+        /* -------------------------------------- */
+
+        .admin-footer-container {
+            width: 100vw; 
+            position: relative; 
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            background-color: var(--text-main);
+            color: white;
+            padding: 20px 24px;
+            margin-top: auto; 
+            flex-shrink: 0;
+        }
+
+        .admin-footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; 
+            width: 100%;
+        }
+
+        .admin-footer-brand {
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #cbd5e1;
+            margin-right: 20px;
+        }
+
+        .admin-footer-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .admin-footer-link {
+            color: var(--primary-blue); 
+            font-size: 0.9em;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .admin-footer-link:hover {
+            color: #93c5fd; 
+        }
+
+        .admin-footer-separator {
+            color: #475569;
+        }
+
+
+        /* -------------------------------------- */
+        /* --- Títulos e Cabeçalhos --- */
+        /* -------------------------------------- */
+
+        .admin-header-container {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #E2E8F0;
+            padding-bottom: 20px;
+        }
+
+        .admin-title {
+            font-size: 2.2em;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .admin-subtitle {
+            font-size: 1em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .admin-section-title {
+            font-size: 1.6em;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--light-blue);
+        }
+
+        /* -------------------------------------- */
+        /* --- Elementos de Formulário --- */
+        /* -------------------------------------- */
+
+        .admin-form-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .admin-form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-label {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .admin-input, 
+        .admin-select {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1em;
+            font-weight: 500;
+            color: var(--text-main);
+            border: 2px solid #E2E8F0;
+            border-radius: 10px; 
+            background-color: var(--bg-card);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none; /* Para select customizado */
+        }
+
+        .admin-input:focus, 
+        .admin-select:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+        }
+
+        /* -------------------------------------- */
+        /* --- Botões --- */
+        /* -------------------------------------- */
+
+        .admin-button-group {
+            grid-column: 1 / -1; /* Ocupa a largura total na grade */
+            display: flex;
+            justify-content: flex-end; /* Botões à direita */
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .admin-primary-button,
+        .admin-secondary-button {
+            font-size: 0.95em;
+            font-weight: 700;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .admin-primary-button {
+            background-color: var(--primary-blue);
+            color: white;
+            box-shadow: 0 4px 8px rgba(14, 165, 233, 0.3);
+        }
+
+        .admin-primary-button:hover {
+            background-color: #0c8cd4; 
+        }
+
+        .admin-secondary-button {
+            background-color: #E2E8F0;
+            color: var(--text-secondary);
+            border: 1px solid #CBD5E1;
+        }
+
+        .admin-secondary-button:hover {
+            background-color: #CBD5E1;
+            color: var(--text-main);
+        }
+
+        .admin-delete-button {
+            background-color: var(--danger-red);
+            color: white;
+            font-size: 0.9em;
+            font-weight: 700;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .admin-delete-button:hover {
+            background-color: #C53030;
+        }
+
+        /* -------------------------------------- */
+        /* --- Listas de Gerenciamento (Partidas e Usuários) --- */
+        /* -------------------------------------- */
+
+        .admin-matches-list,
+        .admin-users-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .admin-match-card,
+        .admin-user-card {
+            background-color: #F8FAFC; 
+            padding: 18px 24px;
+            border-radius: 16px;
+            border: 2px solid #E2E8F0; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .admin-match-card:hover,
+        .admin-user-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1);
+        }
+
+        .match-details,
+        .user-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .match-times,
+        .user-info-name {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--text-main);
+        }
+
+        .match-date,
+        .user-info-email {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .match-actions,
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-action-button {
+            background-color: var(--primary-blue);
+            color: white;
+            font-size: 0.9em;
+            font-weight: 700;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .admin-action-button:hover {
+            background-color: #0c8cd4;
+        }
+
+        /* -------------------------------------- */
+        /* --- Responsividade --- */
+        /* -------------------------------------- */
+
+        @media (max-width: 1150px) {
+            .admin-dashboard-card {
+                max-width: 95%; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .admin-navbar-link-group {
+                gap: 10px;
+            }
+            .admin-navbar-link {
+                font-size: 0.9em;
+            }
+            .admin-dashboard-card {
+                padding: 20px;
+            }
+            .admin-title {
+                font-size: 1.8em;
+            }
+            .admin-section-title {
+                font-size: 1.4em;
+            }
+            /* Partida e Usuário Cards para Mobile */
+            .admin-match-card,
+            .admin-user-card {
+                padding: 15px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .match-actions,
+            .user-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .admin-button-group {
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+            .admin-primary-button,
+            .admin-secondary-button {
+                flex-grow: 1; /* Faz os botões ocuparem mais espaço */
+            }
+            .admin-form-container {
+                grid-template-columns: 1fr; /* Coluna única no celular */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .admin-footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .admin-footer-links {
+                margin-top: 5px;
+            }
+        }
